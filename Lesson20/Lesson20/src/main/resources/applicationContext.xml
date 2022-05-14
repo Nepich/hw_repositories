@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans  xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:context="http://www.springframework.org/schema/context"
+        xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <bean id="StoreBean"
+          class="port.store.Store">
+    </bean>
+
+    <bean id="ShipBean"
+          class="port.ship.Ship">
+    </bean>
+
+    <bean id="ShipBean1"
+          class="port.ship.Ship">
+    </bean>
+
+    <bean id="ShipBean2"
+          class="port.ship.Ship">
+    </bean>
+
+    <bean id="PortBean"
+          class="port.Port">
+        <constructor-arg ref="StoreBean"/>
+        <constructor-arg value="2"/>
+    </bean>
+
+    <bean id="BrickSupplierBean"
+          class="port.suppliers.BrickSupplier">
+    <constructor-arg ref="StoreBean"/>
+    </bean>
+
+    <bean id="WoodSupplierBean"
+          class="port.suppliers.WoodSupplier">
+        <constructor-arg ref="StoreBean"/>
+    </bean>
+
+    <bean id="SteelSupplierBean"
+          class="port.suppliers.SteelSupplier">
+        <constructor-arg ref="StoreBean"/>
+    </bean>
+
+    <bean id="CraneBean"
+          class="port.Crane">
+        <constructor-arg ref="StoreBean"/>
+        <constructor-arg ref="ShipBean"/>
+    </bean>
+
+    <bean id="CraneBean1"
+          class="port.Crane">
+        <constructor-arg ref="StoreBean"/>
+        <constructor-arg ref="ShipBean1"/>
+    </bean>
+
+    <bean id="CraneBean2"
+          class="port.Crane">
+        <constructor-arg ref="StoreBean"/>
+        <constructor-arg ref="ShipBean2"/>
+    </bean>
+
+</beans>
