@@ -12,7 +12,7 @@ public class Store {
 
     
     public synchronized void put(Ship ship){
-        while (store.stream().filter(a -> a.getType().equals(ship.getType())).count() < 0){
+        while (store.stream().filter(a -> a.getType().equals(ship.getType())).count() <= 0){
             try{
                 wait();
             }
@@ -27,7 +27,7 @@ public class Store {
     }
 
     public synchronized void load(Product product){
-        while (store.size()>49){
+        while (store.size()>74){
             try {
                 wait();
             } catch (InterruptedException e) {}
